@@ -16,3 +16,5 @@ head(nycflights13::flights)
 summary(distance)
 describe(distance)
 
+demo = cbind(arr_delay, dep_delay, distance)
+describe(demo)
