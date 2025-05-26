@@ -67,3 +67,7 @@ my_values = c(4, 7, 9, 11)
 names(my_values) = c("a", "b", "c", "d")
 my_values
 my_values["c"]
+
+library(psych)
+BOD
+summary(BOD)
