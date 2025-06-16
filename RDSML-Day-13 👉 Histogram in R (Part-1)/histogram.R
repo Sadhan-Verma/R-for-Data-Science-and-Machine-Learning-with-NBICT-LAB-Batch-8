@@ -18,8 +18,18 @@ ggplot(dataset, aes(x = weight))+
 
 # Adding the mean line
 myPlot = ggplot(dataset, aes(x = weight))+
-  geom_histogram(color = "black", fill = "lightblue")
+  geom_histogram(color = "black", fill = "white")
 
 myPlot + geom_vline(aes(xintercept = mean(weight)), 
-                    color = "blue")
+                    color = "blue", linetype = "dashed", size = 1)
+
+# Histogram with density plot
+ggplot(dataset, aes(x = weight))+
+  geom_histogram(aes(y = after_stat(density)), color = "black", fill = "white")+
+  geom_density(fill = "blue", alpha = .2)
+
+# Changing line color and fill color
+ggplot(dataset, aes(x = weight))+
+  geom_histogram(color = "darkblue", fill = "lightblue")
+
 
