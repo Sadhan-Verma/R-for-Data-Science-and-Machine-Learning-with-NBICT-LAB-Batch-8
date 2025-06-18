@@ -32,15 +32,20 @@ group_means
 
 # Adding mean lines
 myPlot = ggplot(dataset, aes(x = weight, fill = sex)) +
-  geom_histogram(color = "white", alpha = .5, position = "dodge") +
+  geom_histogram(color = "white", alpha = 1, position = "dodge") +
   geom_vline(data = group_means, aes(xintercept = grp.mean, color = sex), 
              linetype = "dashed") +
   theme(legend.position = "top")
 
 myPlot
 
+# Using custom color palettes
+myPlot + scale_color_manual(values = c("#999999", "#E69F00")) +
+  scale_fill_manual(values = c("#999999", "#E69F00"))
 
-
+# Using color brewer color palettes
+myPlot + scale_color_brewer(palette = "Dark2") +
+  scale_fill_brewer(palette = "Dark2")
 
 
 
