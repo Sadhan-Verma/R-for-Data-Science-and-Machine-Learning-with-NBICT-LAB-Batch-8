@@ -85,5 +85,6 @@ ggplot(dataset, aes(x = dose, y = len, fill = dose)) +
   scale_color_manual(values = c("#85713a", "#c72ce6", "#f00a24")) +
   theme(legend.position = "none")
 
-
+# You should learn more about GitHub from the internet. 
+# Please go to YouTube and search for GitHub free courses
 
