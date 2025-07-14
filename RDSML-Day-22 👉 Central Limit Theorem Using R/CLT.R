@@ -41,3 +41,11 @@ for (i in 1:1000){
 }
 
 hist(cl100)
+
+cl5 <- mean(sample(r,5))
+
+for (i in 1:999){
+  cl5 <- c(cl5, mean(sample(r,5)))
+}
+
+hist(cl5)
