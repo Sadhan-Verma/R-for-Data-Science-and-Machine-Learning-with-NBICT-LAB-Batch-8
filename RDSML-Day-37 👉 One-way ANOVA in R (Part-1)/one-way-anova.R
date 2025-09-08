@@ -23,3 +23,20 @@ boxplot(weight ~ group,
         ylab = "Dried weight of plants", 
         col = "lightgray"
         )
+
+# Visualizing the data using mean plots
+# install.packages("ggpubr")
+library(ggpubr)
+ggline(PlantGrowth,
+       x = "group",
+       y = "weight",
+       add = c("mean_se", "jitter")
+       )
+
+# Running the One-way ANOVA test
+anova <- aov(weight ~ group, data = PlantGrowth)
+summary(anova)
+
+
+
+
