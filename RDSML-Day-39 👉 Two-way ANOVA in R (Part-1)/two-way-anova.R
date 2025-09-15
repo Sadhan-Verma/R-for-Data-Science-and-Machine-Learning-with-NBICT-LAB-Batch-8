@@ -9,3 +9,10 @@ d <- read.csv("cropdata.csv")
 summs <- d %>%
   group_by(fert, irr) %>%
   summarise(mean = mean(y), se = sd(y)/sqrt(n()), .groups = "drop")
+
+# Quick Data Summary Visualization
+library(ggplot2)
+ggplot(summs, aes(irr, mean, group = fert))+
+  geom_line() +
+  geom_point(size = 2) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width = .2)
