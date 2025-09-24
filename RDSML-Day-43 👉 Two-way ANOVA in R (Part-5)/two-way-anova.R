@@ -10,6 +10,8 @@ summs <- d %>%
   group_by(fert, irr) %>%
   summarise(mean = mean(y), se = sd(y)/sqrt(n()), .groups = "drop")
 
+print(summs)
+
 # Quick Data Summary Visualization
 library(ggplot2)
 ggplot(summs, aes(irr, mean, group = fert))+
@@ -35,7 +37,8 @@ res <- residuals(m)
 shapiro.test(res)
 
 # Levene's test for equal variances 
-car::leveneTest(y ~ fert*irr, data = d, center = median)
+library(car)
+leveneTest(y ~ fert*irr, data = d, center = median)
 
 # Interaction contrasts (simple effects): 
 # effect of fert at each level of irr
@@ -60,13 +63,13 @@ print(group_letters)
 # Publication-ready ANOVA table
 library(broom)
 library(kableExtra)
-library(car)
 
 aov_tab <- Anova(m, type = 3) %>%
   tidy() %>%
   mutate(p.value = signif(p.value, 3))
 
-print(aov_tab)
-
 kbl(aov_tab, digits = 3, caption = "Two-way ANOVA") %>%
   kable_classic(full_width = FALSE, html_font = "Times New Roman")
+
+
+
