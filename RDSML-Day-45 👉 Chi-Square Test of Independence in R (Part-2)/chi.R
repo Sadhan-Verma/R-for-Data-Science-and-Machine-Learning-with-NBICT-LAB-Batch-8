@@ -45,12 +45,12 @@ round(chisq$residuals, 3)
 chisq$stdres
 
 # Visualize Pearson residuals using the package corrplot
-install.packages("corrplot")
+# install.packages("corrplot")
 library(corrplot)
 corrplot(chisq$residuals, is.cor = FALSE)
 
 # Contribution in percentage (%)
-contrib <- 100 * chisq$residuals^2 / chisq$statistic
+contrib <- 100 * (chisq$residuals)^2 / chisq$statistic
 round(contrib, 3)
 
 # Visualize the contribution
